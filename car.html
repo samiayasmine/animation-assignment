@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>cars</title>
+	<style type="text/css">
+		#car1 {
+			margin-top: 23%;
+			position: absolute;
+		}
+		#rel {
+			position: relative;
+		}
+		#brick {
+			width: 300px;
+			height: 200px;
+			margin-left: 70%;
+			margin-top: 19%;
+
+		}
+		#wall {
+			height: 50%;
+			width: 100%;
+			margin: 0 auto;
+			background: url(backdrop.jpg);
+		}
+		#smoke {
+			width: 200px;
+			height: 200px;
+			position: absolute;
+			margin-left: 75%;
+			margin-top: 17%;
+			transform: rotate(-40deg);
+			
+		}
+		#smoke2 {
+			width: 200px;
+			height: 200px;
+			position: absolute;
+			margin-left: 65%;
+			margin-top: 18%;
+			transform: rotate(-90deg);
+		}
+		#fire {
+			width: 150px;
+			height: 150px;
+			position: absolute;
+			margin-left: 71%;
+			margin-top: 17%;
+		}
+		#drip {
+			width: 155px;
+			height: 100px;
+			position: absolute;
+			margin-top: 358px;
+			margin-left: 64%;
+			z-index: 1;
+			transform: rotate(2deg);
+		}
+		#sun {
+			position: absolute;
+			width: 240px;
+			height: 240px;
+			margin-left: 780px;
+			margin-top: 80px;
+
+		}
+		#sunny {
+			position: relative;
+			width: 200px;
+			height: 200px;
+			margin-top: 100px;
+		}
+		#start {
+			position: absolute;
+
+		}
+		html {
+			background: grey;
+		}
+		button {
+			display: flex-inline;
+			margin-top: 20px;
+			height: 45px;
+			width: 75px;
+			border-radius: 5px;
+		}
+		header {
+			background: navy;
+		}
+		#box {
+			border: solid;
+			border-width: 10px;
+			padding: 5px;
+		}
+		footer {
+			position: fixed;
+			height: 150px;
+			width: 1280px;
+			background: black;
+			color: white;
+			font-size: 75px;
+			text-align: center;
+			margin-top: 20px;
+			border-width: 15px;
+			padding-bottom: 10px;
+
+		}
+
+	</style>
+</head>
+<header style=" width: 100%; height: 70px;">
+<center>
+		<button onclick="SUNNY()" > Step One</button>
+		<button onclick="Move()"> Step Two </button> 
+		
+</center>
+</header>
+<body>
+<div id="box">
+<div id="rel">
+			<img id="smoke" src="smokecloud.gif" style="display: none" >
+			<img id="smoke2" src="smokecloud.gif" style="display: none;">
+			<img id="fire" src="fire.gif" style="display: none;">
+			<img id="drip" src="drip.gif" style="display: none;">
+			<img id="sun" src="sun.gif" style="display: none;">
+
+<div id="start">
+			<img id="sunny" src="sunny.gif">
+</div>
+<div id="car1">
+			<img src="car1.gif" style="position: relative; left: -330px">
+</div>
+<div id="wall">
+<img id="brick" src="wall.png">
+</div>
+<p></p>
+					<script type="text/javascript">
+				   var pos = -400;
+						function Move() {
+							var elem = document.getElementById("car1");
+							var id = setInterval(frame, 5);
+						function frame() {
+							if (pos == 1100) {
+								smoke();
+								clearInterval(id);
+							} else {
+								pos++;
+								elem.style.left = pos + 'px';
+							}
+						}
+						function smoke() {
+							if(pos == 1100) {
+					         document.getElementById("smoke").style.display="block";
+					         document.getElementById("smoke2").style.display="block";
+					         document.getElementById("fire").style.display="block";
+					         document.getElementById("drip").style.display="block";
+					         document.getElementById("sun").style.display="block";
+							}
+						}
+					}
+						function SUNNY() {
+							var possy = -200;
+							var elem = document.getElementById("start");
+							var idy = setInterval(sun, 8);
+						function sun() {
+							if (possy == 780) {
+								clearInterval(idy);
+								document.getElementById("sunny").style.display="none";
+								window.alert("Should've switched to Geico");
+							} else {
+								possy++;
+								elem.style.left = possy + 'px';
+
+						}
+					}
+				}
+					</script>
+</div>
+<footer>
+	<p> Don't Drink and Drive! </p>
+</footer>
+</body>
+</html>
